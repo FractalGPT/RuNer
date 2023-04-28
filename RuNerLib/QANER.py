@@ -26,7 +26,7 @@ class RuNerQA():
     self.qap = QuestionAnsweringPipeline(model, tokenizer)
 
   # Поиск именованной сущности
-  def SearchNer(self, text, q, p = 0.35):
+  def __ner(self, text, q, p = 0.35):
     '''Поиск именованной сущности'''
     ans = self.qap(context = text, question = q, top_k = 1)
     answers = []
@@ -36,7 +36,7 @@ class RuNerQA():
       return None
 
   # Поиск неров
-  def NerDetection(self, ner_list, text):
+  def NerDetection(self, ner_list, text, p = 0.35):
     '''Поиск неров'''
-    ners = [{ner:self.SearchNer(text, f"Какой {ner}?")} for ner in ner_list]
+    ners = [{ner:self.__ner(text, f"Описание '{ner}'", p)} for ner in ner_list]
     return ners
