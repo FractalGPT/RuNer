@@ -38,5 +38,5 @@ class RuNerQA():
   # Поиск неров
   def NerDetection(self, ner_list, text, p = 0.35):
     '''Поиск неров'''
-    ners = [{ner:self.__ner(text, f"Описание '{ner}'", p)} for ner in ner_list]
+    ners = [{ner:self.__ner(text, f"Какой {ner}?", p)} for ner in ner_list]
     return ners
