@@ -36,7 +36,7 @@ class RuNerQA():
       return None
 
   # Поиск неров
-  def NerDetrection(self, ner_list, text):
+  def NerDetection(self, ner_list, text):
     '''Поиск неров'''
     ners = [{ner:self.SearchNer(text, f"Какой {ner}?")} for ner in ner_list]
     return ners
